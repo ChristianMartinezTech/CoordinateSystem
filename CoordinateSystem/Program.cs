@@ -33,35 +33,80 @@ namespace CoordinateSystem
 
             Console.WriteLine("Enter Coordinate Y of dot C:");
             double cy = Convert.ToDouble(Console.ReadLine());
-
+            
+            Console.WriteLine();
             Console.WriteLine("Point A: {0},{1}", ax, ay);
             Console.WriteLine("Point B: {0},{1}", bx, by);
             Console.WriteLine("Point C: {0},{1}", cx, cy);
 
 
-            // Calculating Triangle sides
-            // GOTTA MAKE THIS A METHOD
-            // Length of AB
+            // Calculating Length of AB
+            Console.WriteLine();
             double lenghtAB = Math.Sqrt(Math.Pow(bx - ax, 2) + Math.Pow(by - ay, 2));
             Console.WriteLine("Lenght of AB is: {0}", lenghtAB);
 
-            // Length of BC
+            // Calculating Length of BC
             double lenghtBC = Math.Sqrt(Math.Pow(cx - bx, 2) + Math.Pow(cy - by, 2));
             Console.WriteLine("Lenght of BC is: {0}", lenghtBC);
 
-            // Length of AC
+            // Calculating Length of AC
             double lenghtAC = Math.Sqrt(Math.Pow(cx - ax, 2) + Math.Pow(cy - ay, 2));
             Console.WriteLine("Lenght of AC is: {0}", lenghtAC);
+            Console.WriteLine();
 
 
+            // Calculating Equilateral
+            Console.WriteLine();
+            if ((lenghtAB == lenghtBC) && (lenghtBC == lenghtAC) && (lenghtAC == lenghtAB))
+            {
+                Console.WriteLine("Triangle is Equilateral");
+            } else
+            {
+                Console.WriteLine("Triangle is NOT Equilateral");
+            }
+            Console.WriteLine();
 
 
+            // Calculating Isosceles
+            if ((lenghtAB == lenghtBC) || (lenghtBC == lenghtAC) || (lenghtAB == lenghtAC))
+            {
+                Console.WriteLine("Triangle is Isosceles");
+            } else
+            {
+                Console.WriteLine("Triangle is NOT Isosceles");
+            }
+            Console.WriteLine();
 
 
-            // Debugger
-            Console.WriteLine("Say smthng:");
-            string smthng = Console.ReadLine();
-            Console.WriteLine(smthng);
+            // Calculating Rightness
+            if ((ax == bx) && (ay == cy))
+            {
+                Console.WriteLine("Triangle is Right");
+            }
+            else
+            {
+                Console.WriteLine("Triangle is NOT Right");
+            }
+            Console.WriteLine();
+
+
+            // Calculating Permeter
+            double perimeter = lenghtAB + lenghtBC + lenghtAC;
+            Console.WriteLine("Perimeter is: {0}", perimeter);
+            Console.WriteLine();
+
+
+            // Even numbers up to parameter
+            for (int i = 0; i < Convert.ToInt32(perimeter); i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine("{0}", i);
+                }
+            }
+
+            // Keeping the console open
+            string openedWindow = Console.ReadLine();
         }
     }
 }
